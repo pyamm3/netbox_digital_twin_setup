@@ -16,6 +16,4 @@ sudo apt-get upgrade
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker docker-compose
 
 bash -c "$(curl -sL https://get.containerlab.dev)"
-sudo apt install python3
-sudo apt install python3.10-venv
-
+sudo apt install python3.10
