@@ -1,0 +1,3 @@
+run the following commands
+
+apt install curl git 
