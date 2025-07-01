@@ -1,0 +1,7 @@
+apt install curl git sudo python3.10 vim
+curl -sL https://bootstrap.pypa.io/get-pip.py | python3.10 -
+pip install nrx
+
+git clone https://github.com/netreplica/nrx.git --recursive
+cd nrx
+pip install -r requirements.txt
