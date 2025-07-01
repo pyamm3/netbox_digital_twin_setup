@@ -1,3 +1,8 @@
 run the following commands
 
 sudo apt install curl git 
+
+once downloaded
+
+chmod +x ./1_docker_clab_py_install.sh
+chmod +x ./2_install_netbox_docker.sh
