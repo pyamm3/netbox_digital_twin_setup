@@ -1,0 +1,57 @@
+cd nrx
+
+nrx --init
+mv /root/.nr/nrx.conf-0.8.0 /root/.nr/nrx.conf
+
+		to create Lab1.clab.yaml file:
+		
+vim Lab1.clab.yaml
+(you have to press insert to be able to write in this file and you have to be sudo su'd into your vm)
+
+name: Lab1
+topology:
+  nodes:
+    r1:
+      kind: srl
+      image: ghcr.io/nokia/srlinux:latest
+      labels:
+        role: router
+        platform: sr-linux
+        group: Lab1
+        vendor: Nokia
+        model: ixrh4
+
+    r2:
+      kind: srl
+      image: ghcr.io/nokia/srlinux:latest
+      labels:
+        role: router
+        platform: sr-linux
+        group: Lab1
+        vendor: Nokia
+        model: ixrh4
+
+    graphite:
+      kind: linux
+      image: netreplica/graphite:latest
+      env:
+        HOST_CONNECTION: ${SSH_CONNECTION}
+      binds:
+        - __clabDir__/topology-data.json:/htdocs/default/default.json:ro
+        - __clabDir__/ansible-inventory.yml:/htdocs/lab/default/ansible-inventory.yml:ro
+      ports:
+        - 8080:80
+      exec:
+        - sh -c 'graphite_motd.sh 8080'
+      labels:
+        graph-hide: yes
+
+  links:
+    - endpoints: ["r1:e1-1", "r2:e1-1"]
+
+
+(to save your file, press esc and type :wq!)
+
+sudo -E clab dep -t Lab1.clab.yaml
+
+
