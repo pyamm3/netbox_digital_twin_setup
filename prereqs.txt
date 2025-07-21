@@ -7,3 +7,4 @@ cd netbox_digital_twin_setup
 
 chmod +x ./1_docker_clab_py_install.sh
 chmod +x ./2_install_netbox_docker.sh
+chmod +x ./3_container_nrx
