@@ -3,6 +3,7 @@ run the following commands
 sudo apt install curl git 
 
 git clone https://github.com/pyamm3/netbox_digital_twin_setup.git
+cd netbox_digital_twin_setup
 
 chmod +x ./1_docker_clab_py_install.sh
 chmod +x ./2_install_netbox_docker.sh
